@@ -130,28 +130,22 @@ main{max-width:1180px;margin:0 auto;padding:0 20px 40px;display:grid;gap:28px}
 .firma small{display:block;font-size:.8em;opacity:.8;line-height:26px}
 .hoja.fin .firma{opacity:1}
 .salto{margin:14px 0 0;font-size:.95rem;min-height:1.5em}
-.extra{margin-top:26px;opacity:0;transition:opacity .8s ease}
-.extra.ver{opacity:1}
 
 /* ---------- Galería (polaroids) ---------- */
 .galeria{padding:64px 32px 72px;text-align:center}
-.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:22px 18px;max-width:980px;margin:0 auto}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 18px;max-width:1080px;margin:0 auto}
 .pola{
   display:flex;flex-direction:column;padding:8px 8px 0;border:0;border-radius:12px;background:var(--crema);
   box-shadow:0 16px 26px rgba(60,0,20,.3);cursor:zoom-in;transition:transform .2s ease;color:var(--tinta);font:inherit;
 }
 .pola:hover{transform:rotate(0) scale(1.02)!important}
-.pola img{width:100%;object-fit:cover;border-radius:6px}
+.pola img{width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 30%;border-radius:6px}
 .pie{
+  display:flex;align-items:center;justify-content:center;min-height:calc(2.3em + 22px);
   font-family:"Caveat","Segoe Script",cursive;font-size:1.3rem;font-weight:500;line-height:1.15;
   padding:10px 6px 12px;text-align:center;
 }
-.p1,.p2,.p3{grid-column:span 2}
-.p4{grid-column:3 / span 2}
-.p1{transform:rotate(-2deg)}.p2{transform:rotate(1.5deg)}.p3{transform:rotate(-1deg)}
-.p4{transform:rotate(1deg)}.p5{transform:rotate(-1.5deg)}
-.p1 img,.p2 img,.p3 img{aspect-ratio:3/4}
-.p4 img,.p5 img{aspect-ratio:1/1}
+.p1{transform:rotate(-2deg)}.p2{transform:rotate(1.5deg)}.p3{transform:rotate(-1deg)}.p4{transform:rotate(1deg)}
 
 dialog{border:0;padding:0;background:transparent;max-width:min(92vw,820px);max-height:94dvh;overflow:visible;color:#fff}
 dialog::backdrop{background:rgba(47,6,20,.88)}
@@ -160,14 +154,6 @@ dialog img{max-height:76dvh;border-radius:14px;margin:auto}
 dialog figcaption{font-family:"Caveat",cursive;font-size:1.7rem;margin-top:10px}
 dialog form{position:absolute;top:8px;right:8px}
 .cerrar{width:44px;height:44px;border-radius:50%;border:0;background:var(--crema);color:var(--tinta);font:600 1.1rem "Fredoka",sans-serif;cursor:pointer}
-
-/* Cupón de la sorpresa */
-.cupon{
-  background:var(--crema);color:var(--tinta);border-radius:18px;padding:34px 30px;text-align:center;
-  width:min(86vw,420px);border:3px dashed var(--rosa);box-shadow:0 24px 50px rgba(0,0,0,.45);
-}
-.cupon h3{margin:0 0 10px;font-size:1.7rem;color:#b01c4a}
-.cupon p{margin:0;font-size:1.1rem}
 
 /* ---------- Tiempo juntos ---------- */
 .juntos{padding:64px 32px 72px;text-align:center}
@@ -235,9 +221,7 @@ footer{max-width:1180px;margin:0 auto;padding:8px 20px 90px;text-align:center;fo
   .heart-wrap{order:-1;width:min(86%,360px)}
   .hoja{padding:34px 26px}
   .grid{grid-template-columns:repeat(2,1fr)}
-  .p1,.p2,.p4,.p5{grid-column:span 1}
-  .p3{grid-column:span 2}
-  .p3 img{aspect-ratio:4/3}
+  .p1,.p2,.p3,.p4{grid-column:span 1}
   .reloj{grid-template-columns:repeat(3,1fr)}
 }
 @media (prefers-reduced-motion:reduce){
@@ -306,7 +290,7 @@ footer{max-width:1180px;margin:0 auto;padding:8px 20px 90px;text-align:center;fo
     </div>
     <div class="heart-wrap">
       <div class="heart-bg"></div>
-      <div class="heart-shadow"><div class="heart-photo"><img src="img/ilustracion2.jpg" alt="Foto de los dos juntos"></div></div>
+      <div class="heart-shadow"><div class="heart-photo"><img src="img/ilustracion2.jpg" alt="Ilustración de los dos juntos"></div></div>
       <span class="gem g1"><svg viewBox="0 0 40 40"><path fill="url(#gel)" d="M20 37C5 27 2 19 2 14 2 8 6 4 11 4c4 0 7 2.6 9 6C22 6.6 25 4 29 4c5 0 9 4 9 10 0 5-3 13-18 23z"/></svg></span>
       <span class="gem g2"><svg viewBox="0 0 40 40"><path fill="url(#gel)" d="M20 37C5 27 2 19 2 14 2 8 6 4 11 4c4 0 7 2.6 9 6C22 6.6 25 4 29 4c5 0 9 4 9 10 0 5-3 13-18 23z"/></svg></span>
       <span class="gem g3"><svg viewBox="0 0 40 40"><path fill="url(#gel)" d="M20 37C5 27 2 19 2 14 2 8 6 4 11 4c4 0 7 2.6 9 6C22 6.6 25 4 29 4c5 0 9 4 9 10 0 5-3 13-18 23z"/></svg></span>
@@ -340,7 +324,6 @@ footer{max-width:1180px;margin:0 auto;padding:8px 20px 90px;text-align:center;fo
         <p class="salto" id="salto" aria-live="polite"></p>
       </div>
     </div>
-
   </section>
 
   <!-- GALERÍA -->
@@ -384,39 +367,24 @@ footer{max-width:1180px;margin:0 auto;padding:8px 20px 90px;text-align:center;fo
   <form method="dialog"><button class="cerrar" aria-label="Cerrar">✕</button></form>
 </dialog>
 
-<!-- Sorpresa -->
-<dialog id="sorpresa" aria-label="Sorpresa">
-  <div class="cupon">
-    <h3 id="s-titulo"></h3>
-    <p id="s-texto"></p>
-  </div>
-  <form method="dialog"><button class="cerrar" aria-label="Cerrar">✕</button></form>
-</dialog>
-
 <script>
 /* =========================================================
    CONFIGURACIÓN — edita solo este bloque para personalizar
    ========================================================= */
 var CONFIG = {
   apodo: "Mi amor",            // texto junto al corazón del menú
-  firma: "Tu amor",             // firma al final de la carta
+  firma: "Tu amor",            // firma al final de la carta
   fechaCarta: "11/10/2026",    // fecha bajo la firma ("" para ocultarla)
   fechaInicio: "",             // inicio de la relación, formato "AAAA-MM-DD" (ej. "2023-05-14"). Vacío = oculta el contador
-  clave: "cosita",                   // palabra secreta para entrar. Vacío = sin clave
+  clave: "cosita",            // palabra secreta para entrar. Vacío = sin clave
   pista: "Una pista: Primer apodo que te puse jeje.", // pista bajo la clave
-  musicaAlAbrir: true,         // empieza la música al abrir la carta (si existe musica.mp3)
-  sorpresa: {
-    titulo: "Cupón de amor",
-    texto: "Válido por una cita sorpresa donde tú eliges el plan. Sin fecha de vencimiento. 💖"
-  }
+  musicaAlAbrir: true          // empieza la música al abrir la carta (si existe musica.mp3)
 };
 
 /* ---------- Textos de la configuración ---------- */
 document.getElementById('apodo').textContent = CONFIG.apodo;
 document.getElementById('firma-nombre').textContent = CONFIG.firma;
 document.getElementById('firma-fecha').textContent = CONFIG.fechaCarta;
-document.getElementById('s-titulo').textContent = CONFIG.sorpresa.titulo;
-document.getElementById('s-texto').textContent = CONFIG.sorpresa.texto;
 document.getElementById('gate-pista').textContent = CONFIG.pista;
 
 var reducir = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -489,7 +457,7 @@ audio.addEventListener('pause',function(){btnMusica.setAttribute('aria-pressed',
 (function(){
   var carta=document.getElementById('carta'), btn=document.getElementById('sobre'),
       txt=document.getElementById('sobre-txt'), hoja=document.getElementById('hoja'),
-      salto=document.getElementById('salto'), extra=document.getElementById('extra'),
+      salto=document.getElementById('salto'),
       ps=[].slice.call(document.querySelectorAll('#texto p')),
       textos=ps.map(function(p){return p.textContent.trim()}),
       escrita=false, escribiendo=false, timer=null;
@@ -499,7 +467,6 @@ audio.addEventListener('pause',function(){btnMusica.setAttribute('aria-pressed',
     ps.forEach(function(p,i){p.textContent=textos[i]});
     hoja.classList.remove('escribiendo'); hoja.classList.add('fin'); hoja.removeAttribute('aria-busy');
     salto.textContent='';
-    extra.hidden=false; setTimeout(function(){extra.classList.add('ver')},50);
     lluvia(44);
   }
 
@@ -539,11 +506,6 @@ audio.addEventListener('pause',function(){btnMusica.setAttribute('aria-pressed',
       if(CONFIG.musicaAlAbrir&&hayMusica&&audio.paused){audio.play().catch(function(){})}
     }
   });
-
-  document.getElementById('btn-sorpresa').addEventListener('click',function(){
-    document.getElementById('sorpresa').showModal();
-    lluvia(36);
-  });
 })();
 
 /* ---------- Visor de fotos ---------- */
@@ -556,9 +518,7 @@ audio.addEventListener('pause',function(){btnMusica.setAttribute('aria-pressed',
       dlg.showModal();
     });
   });
-  [dlg,document.getElementById('sorpresa')].forEach(function(d){
-    d.addEventListener('click',function(e){if(e.target===d)d.close()});
-  });
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
 })();
 
 /* ---------- Tiempo juntos ---------- */
